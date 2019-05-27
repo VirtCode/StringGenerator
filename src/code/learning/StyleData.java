@@ -1,5 +1,7 @@
 package code.learning;
 
+import javafx.util.Pair;
+
 import java.util.HashMap;
 
 /**
@@ -31,6 +33,18 @@ public class StyleData {
     private HashMap<String, Integer> pairs;
 
     /**
+     * Initialize HashMaps
+     */
+    public StyleData(){
+        this.vowelUses = new HashMap<>();
+        this.consonantUses = new HashMap<>();
+        this.vowelCombinations = new HashMap<>();
+        this.consonantCombinations = new HashMap<>();
+        this.pairs = new HashMap<>();
+
+    }
+
+    /**
      * Puts a Vowel into the Style and count it's uses
      * @param c Character to add
      */
@@ -48,7 +62,7 @@ public class StyleData {
      * Puts a Consonant into the Style and count it's uses
      * @param s Combination to add
      */
-    public void newVowelsCombination(String s){
+    public void newVowelCombination(String s){
         vowelCombinations.merge(s, 1, Integer::sum);
     }
     /**
@@ -57,6 +71,15 @@ public class StyleData {
      */
     public void newConsonantCombination(String s){
         consonantCombinations.merge(s, 1, Integer::sum);
+    }
+
+    /**
+     * Puts a new pair to the style
+     * @param c1 First char of Pair
+     * @param c2 Second char of Pair
+     */
+    public void newPair(char c1, char c2){
+        pairs.merge("" + c1 + c2, 1, Integer::sum);
     }
 
 }

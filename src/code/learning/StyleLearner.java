@@ -5,11 +5,10 @@ import code.learning.StyleInstances.LetterType;
 
 import static code.learning.StyleInstances.LetterType.*;
 
-
 /**
  * @author VirtCode
  * @version 1.0
- * Learns Style from Files
+ * Learns Style from Files or Strings
  */
 public class StyleLearner {
     private char[] currentNonLetters;
@@ -40,9 +39,13 @@ public class StyleLearner {
     }
 
     /**
-     *
+     * Learns Style information from File
+     * @param path Path of File
      */
-    public void learnFromFile(){
+    public void learnFromFile(String path){
+        String s = readFile(path);
+        if (s == null || s.equals("")) return;
+        learnFromString(s);
     }
 
     /**
@@ -50,11 +53,48 @@ public class StyleLearner {
      * @param s Sting to learn from
      */
     public void learnFromString(String s){
+        s = cleanString(s);
+
         String[] words = s.split(" ");
+
         for (int i = 0; i < words.length; i++) {
+
             char[] chars = words[i].toCharArray();
+
+            char last = ' ';
+            LetterType lastType = OTHER;
+            String streak = "";
+
             for (int j = 0; j < chars.length; j++) {
 
+                if (last != ' ') style.newPair(last, chars[j]);
+                last = chars[j];
+
+                LetterType currentType = whichLetterType(chars[j]);
+
+                if (currentType != lastType){
+                    switch (lastType){
+                        case VOWEL:
+                            style.newVowelCombination(streak);
+                            break;
+                        case CONSONANT:
+                            style.newConsonantCombination(streak);
+                            break;
+                    }
+                    streak = "";
+                }
+
+                lastType = currentType;
+                streak += chars[i];
+
+                switch (currentType){
+                    case VOWEL:
+                        style.newVowel(chars[j]);
+                        break;
+                    case CONSONANT:
+                        style.newConsonant(chars[j]);
+                        break;
+                }
             }
         }
 
@@ -114,5 +154,11 @@ public class StyleLearner {
         return s.replace("  ", " ");
     }
 
-
+    /**
+     * Get the StyleData till now
+     * @return Current StyleData
+     */
+    public StyleData getStyle(){
+        return style;
+    }
 }
