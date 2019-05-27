@@ -22,7 +22,7 @@ public class StyleLearner {
      * @see StyleInstances
      */
     public StyleLearner(){
-        this(StyleInstances.nonLetters, StyleInstances.consonants, StyleInstances.vowels);
+        this(StyleInstances.nonLetters, StyleInstances.vowels, StyleInstances.consonants, new StyleData());
     }
 
     /**
@@ -30,12 +30,13 @@ public class StyleLearner {
      * @param nonLetters Defines which Characters are going to be ignored
      * @param consonants Defines which Letters are consonants
      * @param vowels Defines which Letters are vowels
+     * @param data Previous obtained data (If not available just a StyleData Constructor)
      */
-    public StyleLearner(char[] nonLetters, char[] vowels, char[] consonants){
+    public StyleLearner(char[] nonLetters, char[] vowels, char[] consonants, StyleData data){
         this.currentNonLetters = nonLetters;
         this.currentConsonants = consonants;
         this.currentVowels = vowels;
-        style = new StyleData();
+        style = data;
     }
 
     /**
@@ -58,7 +59,6 @@ public class StyleLearner {
         String[] words = s.split(" ");
 
         for (int i = 0; i < words.length; i++) {
-
             char[] chars = words[i].toCharArray();
 
             char last = ' ';
@@ -73,19 +73,21 @@ public class StyleLearner {
                 LetterType currentType = whichLetterType(chars[j]);
 
                 if (currentType != lastType){
-                    switch (lastType){
-                        case VOWEL:
-                            style.newVowelCombination(streak);
-                            break;
-                        case CONSONANT:
-                            style.newConsonantCombination(streak);
-                            break;
+                    if (streak.length() > 1) {
+                        switch (lastType) {
+                            case VOWEL:
+                                style.newVowelCombination(streak);
+                                break;
+                            case CONSONANT:
+                                style.newConsonantCombination(streak);
+                                break;
+                        }
                     }
                     streak = "";
                 }
 
                 lastType = currentType;
-                streak += chars[i];
+                streak += chars[j];
 
                 switch (currentType){
                     case VOWEL:
@@ -107,7 +109,7 @@ public class StyleLearner {
      * @see StyleInstances.LetterType
      */
     public LetterType whichLetterType(char c){
-        for (char d :currentVowels) {
+        for (char d : currentVowels) {
             if (d == c) return VOWEL;
         }
         for (char d : currentConsonants){

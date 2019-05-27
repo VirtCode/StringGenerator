@@ -1,7 +1,6 @@
 package code.learning;
 
-import javafx.util.Pair;
-
+import java.util.Map.Entry;
 import java.util.HashMap;
 
 /**
@@ -82,4 +81,43 @@ public class StyleData {
         pairs.merge("" + c1 + c2, 1, Integer::sum);
     }
 
+    /**
+     * Get the Vowel Uses
+     * @return Entry Array with data
+     */
+    public Entry<Character, Integer>[] getVowelUses(){
+        return vowelUses.entrySet().toArray(new Entry[0]);
+    }
+
+    /**
+     * Get the Consonant Uses
+     * @return Entry Array with data
+     */
+    public Entry<Character, Integer>[] getCononantUses(){
+        return consonantUses.entrySet().toArray(new Entry[0]);
+    }
+
+    /**
+     * Get the Vowel Combinations
+     * @return Entry Array with data
+     */
+    public Entry<String, Integer>[] getVowelCombinations(){
+        return vowelCombinations.entrySet().toArray(new Entry[0]);
+    }
+
+    /**
+     * Get the Consonant Combinations
+     * @return Entry Array with data
+     */
+    public Entry<String, Integer>[] getConsonantCombinations(){
+        return consonantCombinations.entrySet().toArray(new Entry[0]);
+    }
+
+    /**
+     * Get all Letter Pairs
+     * @return Entry Array with data
+     */
+    public Entry<String, Integer>[] getPairs(){
+        return pairs.entrySet().toArray(new Entry[0]);
+    }
 }
