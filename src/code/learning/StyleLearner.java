@@ -125,13 +125,14 @@ public class StyleLearner {
      * @return Whole file in one String
      */
     public String readFile(String path){
-        String s = "";
+        StringBuilder s = new StringBuilder();
         try {
             FileReader reader = new FileReader(new File(path));
             BufferedReader bufferedReader = new BufferedReader(reader);
             String line = bufferedReader.readLine();
             while(line != null){
-                s += "\n" + line;
+                s.append("\n");
+                s.append(line);
                 line = bufferedReader.readLine();
             }
         } catch (FileNotFoundException e) {
@@ -140,7 +141,7 @@ public class StyleLearner {
             e.printStackTrace();
         }
 
-        return s;
+        return s.toString();
     }
 
     /**
