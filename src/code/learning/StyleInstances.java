@@ -22,7 +22,7 @@ public class StyleInstances {
     public static final char[] consonants = {'B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'};
 
     /**
-     * An Enum for storing the type of an Character
+     * An Enum for storing the type of a Character
      * VOWEL = Vowel
      * CONSONANT = Consonant
      * OTHER = additional Characters

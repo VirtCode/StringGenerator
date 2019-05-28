@@ -120,4 +120,49 @@ public class StyleData {
     public Entry<String, Integer>[] getPairs(){
         return pairs.entrySet().toArray(new Entry[0]);
     }
+
+    /**
+     * Overwrites the Entry for Vowel Use
+     * @param c char to add
+     * @param i amount to add
+     */
+    void forceVowelUses(char c, int i){
+        vowelUses.put(c, i);
+    }
+
+    /**
+     * Overwrites the Entry for Consonant Use
+     * @param c char to add
+     * @param i amount to add
+     */
+    void forceConsonantUses(char c, int i){
+        consonantUses.put(c, i);
+    }
+
+    /**
+     * Overwrites the Entry for Vowel Combinations
+     * @param s string to add
+     * @param i amount to add
+     */
+    void forceVowelCombination(String s, int i){
+        vowelCombinations.put(s, i);
+    }
+
+    /**
+     * Overwrites the Entry for Consonant Combinations
+     * @param s string to add
+     * @param i amount to add
+     */
+    void forceConsonantCombination(String s, int i){
+        consonantCombinations.put(s, i);
+    }
+
+    /**
+     * Overwrites the Entry for Pair
+     * @param s string to add
+     * @param i amount to add
+     */
+    void forcePair(String s, int i){
+        pairs.put(s, i);
+    }
 }
