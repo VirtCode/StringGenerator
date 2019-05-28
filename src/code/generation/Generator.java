@@ -8,12 +8,11 @@ import code.learning.StyleData;
  */
 public class Generator {
 
-    StyleUtilizer utilizer;
     StyleData data;
 
     public Generator(StyleData style){
         this.data = style;
-        this.utilizer = new StyleUtilizer(data);
+
 
 
     }

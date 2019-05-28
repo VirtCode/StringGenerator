@@ -77,8 +77,7 @@ public class StyleLoader {
 
             String line = bufferedReader.readLine();
             while(line != null && !line.equals("")){
-                if (line.startsWith("//")){
-
+                if (!line.startsWith("//")){
                     if (line.startsWith("#")){
                         current = line.substring(1);
                     }else {
