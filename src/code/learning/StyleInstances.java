@@ -9,7 +9,7 @@ public class StyleInstances {
      * Chars that ar in most Texts but are no Letters
      * Preset
      */
-    public static final char[] nonLetters = {'\n', '\r', ',', '\'', '\"', ':', '.', ';', '(', ')', '/', '\\', '<', '>'};
+    public static final char[] nonLetters = {'\n', '\r', ',', '\'', '\"', ':', '.', ';', '(', ')', '/', '\\', '<', '>', '!', '?', '_', '-'};
     /**
      * Theoretical Vowels
      * Preset

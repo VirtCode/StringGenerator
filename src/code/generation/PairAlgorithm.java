@@ -6,8 +6,13 @@ package code.generation;
  */
 public class PairAlgorithm extends GenerationAlgorithm {
 
+    /**
+     * Generates a Pseudorandom String due to the Algorithm Config by setting pairs after each other.
+     * @return generated String
+     */
     @Override
     protected String generate() {
+        if (length == 0) length = randInt(16);
         if (first == ' '){
             int firstLetterType = randInt(2);
             if (firstLetterType == 0){
