@@ -29,7 +29,7 @@ public class StyleLoader {
 
             bufferedWriter.write("//Consonant Usage: \n");
             bufferedWriter.write("#CU\n");
-            Entry<Character, Integer>[] consonantUsage = data.getCononantUses();
+            Entry<Character, Integer>[] consonantUsage = data.getConsonantUses();
             for (Entry<Character, Integer> entry:consonantUsage) {
                 bufferedWriter.write("" + entry.getKey() + ";" + entry.getValue() + "\n");
             }

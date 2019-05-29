@@ -74,6 +74,7 @@ public class StyleLearner {
 
                 if (currentType != lastType){
                     if (streak.length() > 1) {
+                        style.newCombo(lastType);
                         switch (lastType) {
                             case VOWEL:
                                 style.newVowelCombination(streak);
@@ -82,6 +83,8 @@ public class StyleLearner {
                                 style.newConsonantCombination(streak);
                                 break;
                         }
+                    }else{
+                        style.newSingle(lastType);
                     }
                     streak = "";
                 }

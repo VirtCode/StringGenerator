@@ -31,6 +31,12 @@ public class StyleData {
      */
     private HashMap<String, Integer> pairs;
 
+    private int consonantSingles;
+    private int consonantCombos;
+
+    private int vowelSingles;
+    private int vowelCombos;
+
     /**
      * Initialize HashMaps
      */
@@ -82,6 +88,36 @@ public class StyleData {
     }
 
     /**
+     * Adds a new Single to the data
+     * @param type Letter type
+     */
+    public void newSingle(StyleInstances.LetterType type){
+        switch (type) {
+            case VOWEL:
+                vowelSingles++;
+                break;
+            case CONSONANT:
+                consonantSingles++;
+                break;
+        }
+    }
+
+    /**
+     * Adds a new Single to the data
+     * @param type Letter type
+     */
+    public void newCombo(StyleInstances.LetterType type){
+        switch (type) {
+            case VOWEL:
+                vowelCombos++;
+                break;
+            case CONSONANT:
+                consonantCombos++;
+                break;
+        }
+    }
+
+    /**
      * Get the Vowel Uses
      * @return Entry Array with data
      */
@@ -93,7 +129,7 @@ public class StyleData {
      * Get the Consonant Uses
      * @return Entry Array with data
      */
-    public Entry<Character, Integer>[] getCononantUses(){
+    public Entry<Character, Integer>[] getConsonantUses(){
         return consonantUses.entrySet().toArray(new Entry[0]);
     }
 
@@ -119,6 +155,32 @@ public class StyleData {
      */
     public Entry<String, Integer>[] getPairs(){
         return pairs.entrySet().toArray(new Entry[0]);
+    }
+
+    /**
+     * Returns the amount of singles for a Lettertype
+     * @param type Lettertype to return
+     * @return Amount of singles
+     */
+    public int getSingle(StyleInstances.LetterType type){
+        switch (type) {
+            case VOWEL: return vowelSingles;
+            case CONSONANT: return consonantSingles;
+        }
+        return 0;
+    }
+
+    /**
+     * Returns the amount of combos for a Lettertype
+     * @param type Lettertype to return
+     * @return Amount of combos
+     */
+    public int getCombo(StyleInstances.LetterType type){
+        switch (type) {
+            case VOWEL: return vowelCombos;
+            case CONSONANT: return consonantCombos;
+        }
+        return 0;
     }
 
     /**
@@ -164,5 +226,37 @@ public class StyleData {
      */
     void forcePair(String s, int i){
         pairs.put(s, i);
+    }
+
+    /**
+     * Overwrites the Singels of a Lettertype
+     * @param type Lettertype to overwrite
+     * @param i amount of Singles
+     */
+    void forceSingle(StyleInstances.LetterType type, int i){
+        switch (type) {
+            case VOWEL:
+                vowelSingles = i;
+                break;
+            case CONSONANT:
+                consonantSingles = i;
+                break;
+        }
+    }
+
+    /**
+     * Overwrites the Combos of a Lettertype
+     * @param type Lettertype to overwrite
+     * @param i amount of combos
+     */
+    void forceCombo(StyleInstances.LetterType type, int i){
+        switch (type) {
+            case VOWEL:
+                vowelCombos = i;
+                break;
+            case CONSONANT:
+                consonantCombos = i;
+                break;
+        }
     }
 }

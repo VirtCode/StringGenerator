@@ -39,7 +39,7 @@ public class StyleUtilizer {
      * @return whole uses
      */
     public int getWholeConsonantUses(){
-        Entry<Character, Integer>[] array = style.getCononantUses();
+        Entry<Character, Integer>[] array = style.getConsonantUses();
         int value = 0;
 
         for (Entry<Character, Integer> e:array) {
@@ -116,7 +116,7 @@ public class StyleUtilizer {
      * @return char at that position
      */
     public char getConsonantAt(int i){
-        Entry<Character, Integer>[] array = style.getCononantUses();
+        Entry<Character, Integer>[] array = style.getConsonantUses();
         int value = 0;
         int last = 0;
 
