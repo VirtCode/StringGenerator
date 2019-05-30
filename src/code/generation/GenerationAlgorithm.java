@@ -94,4 +94,45 @@ public abstract class GenerationAlgorithm {
         return utilizer.getConsonantCombinationAt(randInt(range));
     }
 
+    /**
+     * Returns pseudorandomly if it is a Combination of a Single
+     * @return true is a combo
+     */
+    protected boolean randomAmountForConsonant(){
+        int range = utilizer.getWholeConsonantLength();
+        return utilizer.isConsonantComboAt(randInt(range));
+    }
+
+    /**
+     * Returns pseudorandomly if it is a Combination of a Single
+     * @return true is a combo
+     */
+    protected boolean randomAmountForVowel(){
+        int range = utilizer.getWholeVowelLength();
+        return utilizer.isVowelComboAt(randInt(range));
+    }
+
+    /**
+     * Returns a pseudorandom amount of Consonants
+     * @return Consonants
+     */
+    protected String randomConsonants() {
+        if (randomAmountForConsonant()){
+            return randomConsonantCombination();
+        }else{
+            return "" + randomConsonant();
+        }
+    }
+
+    /**
+     * Returns a pseudorandom amount of Vowels
+     * @return Vowels
+     */
+    protected String randomVowels() {
+        if (randomAmountForVowel()){
+            return randomVowelCombination();
+        }else{
+            return "" + randomVowel();
+        }
+    }
 }

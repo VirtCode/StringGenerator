@@ -12,10 +12,10 @@ public class SwitchAlgorithm extends GenerationAlgorithm{
         int vowel = randInt(2);
         for (int i = 0; i < length; i++) {
             if (vowel == 0){
-                s += randomVowelCombination();
+                s += randomVowels();
                 vowel = 1;
             }else {
-                s += randomConsonantCombination();
+                s += randomConsonants();
                 vowel = 0;
             }
         }

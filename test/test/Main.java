@@ -17,12 +17,12 @@ public class Main {
 
         learner = new StyleLearner();
 
-        //learner.learnFromFile("D:/Test/DieSchwarzeSpinne.txt");
-        //data = learner.getStyle();
+        learner.learnFromFile("D:/Test/DieSchwarzeSpinne.txt");
+        data = learner.getStyle();
 
         loader = new StyleLoader();
-        //loader.saveStyle(data, "D:/Test/DieSchwarzeSpinne.csv");
-        data = loader.loadStyle("D:/Test/DieSchwarzeSpinne.csv");
+        loader.saveStyle(data, "D:/Test/DieSchwarzeSpinne.csv");
+        //data = loader.loadStyle("D:/Test/DieSchwarzeSpinne.csv");
 
         generator = new Generator(data, new SwitchAlgorithm());
         generator.setLength(4);

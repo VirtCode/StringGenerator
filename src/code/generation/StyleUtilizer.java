@@ -1,6 +1,7 @@
 package code.generation;
 
 import code.learning.StyleData;
+import code.learning.StyleInstances;
 
 import java.util.Map.Entry;
 
@@ -90,6 +91,38 @@ public class StyleUtilizer {
             if (e.getKey().startsWith("" + c)) value += e.getValue();
         }
         return value;
+    }
+
+    /**
+     * Returns the whole amount of consonant singles and pairs
+     * @return The amount of uses
+     */
+    public int getWholeConsonantLength(){
+        return style.getCombo(StyleInstances.LetterType.CONSONANT) + style.getSingle(StyleInstances.LetterType.CONSONANT);
+    }
+    /**
+     * Returns the whole amount of vowel singles and pairs
+     * @return The amount of uses
+     */
+    public int getWholeVowelLength(){
+        return style.getCombo(StyleInstances.LetterType.VOWEL) + style.getSingle(StyleInstances.LetterType.VOWEL);
+    }
+
+    /**
+     * Returns if it is a Consonant combo at a certain Position
+     * @param i Position
+     * @return True if it is a Combo
+     */
+    public boolean isConsonantComboAt(int i){
+        return i >= style.getSingle(StyleInstances.LetterType.CONSONANT);
+    }
+    /**
+     * Returns if it is a Vowel combo at a certain Position
+     * @param i Position
+     * @return True if it is a Combo
+     */
+    public boolean isVowelComboAt(int i){
+        return i >= style.getSingle(StyleInstances.LetterType.VOWEL);
     }
 
     /**
