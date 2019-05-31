@@ -10,7 +10,7 @@ This project is licensed under the MIT License.
 Please consider reading the LICENSE file for more information.
 ## Usage
 ### Getting the JAR
-To get the latest version of the library, download the latest jar in the builds folder.
+To get the latest version of the library, download the latest release in the release section.
 ### In Code
 Learn a specific style from a textfile:
 ```java
