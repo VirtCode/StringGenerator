@@ -1,8 +1,8 @@
 # StringGenerator
 ## About
-You have ever wanted to generate your own really random names in your software?
-Then this is the right Library for you.
 This Library is capable of generating random names out of the characterusage of a text.
+The characterusage can be saved in .csv files and loaded later again.
+With this Library you are able to write your own generation Algorithms quite easy.
 ## Version
 The Current version is **1.0**
 ## License
