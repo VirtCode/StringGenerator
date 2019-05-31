@@ -1,4 +1,5 @@
-package code.generation;
+package io.github.virtcode.stringgenerator.algorithms;
+
 
 /**
  * @author VirtCode

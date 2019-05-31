@@ -1,28 +1,25 @@
-package code.learning;
+package io.github.virtcode.stringgenerator;
 
 import java.io.*;
-import code.learning.StyleInstances.LetterType;
-
-import static code.learning.StyleInstances.LetterType.*;
 
 /**
  * @author VirtCode
  * @version 1.0
  * Learns Style from Files or Strings
  */
-public class StyleLearner {
+public class Learner {
     private char[] currentNonLetters;
     private char[] currentConsonants;
     private char[] currentVowels;
 
-    private StyleData style;
+    private Style style;
 
     /**
      * Constructor with Preset arguments
-     * @see StyleInstances
+     * @see Instances
      */
-    public StyleLearner(){
-        this(StyleInstances.nonLetters, StyleInstances.vowels, StyleInstances.consonants, new StyleData());
+    public Learner(){
+        this(Instances.nonLetters, Instances.vowels, Instances.consonants, new Style());
     }
 
     /**
@@ -32,7 +29,7 @@ public class StyleLearner {
      * @param vowels Defines which Letters are vowels
      * @param data Previous obtained data (If not available just a StyleData Constructor)
      */
-    public StyleLearner(char[] nonLetters, char[] vowels, char[] consonants, StyleData data){
+    public Learner(char[] nonLetters, char[] vowels, char[] consonants, Style data){
         this.currentNonLetters = nonLetters;
         this.currentConsonants = consonants;
         this.currentVowels = vowels;
@@ -62,7 +59,7 @@ public class StyleLearner {
             char[] chars = words[i].toCharArray();
 
             char last = ' ';
-            LetterType lastType = OTHER;
+            Instances.LetterType lastType = Instances.LetterType.OTHER;
             String streak = "";
 
             for (int j = 0; j < chars.length; j++) {
@@ -70,7 +67,7 @@ public class StyleLearner {
                 if (last != ' ') style.newPair(last, chars[j]);
                 last = chars[j];
 
-                LetterType currentType = whichLetterType(chars[j]);
+                Instances.LetterType currentType = whichLetterType(chars[j]);
 
                 if (currentType != lastType){
                     if (streak.length() > 1) {
@@ -109,16 +106,16 @@ public class StyleLearner {
      * Get the type of a Character
      * @param c Character to specify
      * @return Type of character stored in LetterType Enum
-     * @see StyleInstances.LetterType
+     * @see Instances.LetterType
      */
-    public LetterType whichLetterType(char c){
+    public Instances.LetterType whichLetterType(char c){
         for (char d : currentVowels) {
-            if (d == c) return VOWEL;
+            if (d == c) return Instances.LetterType.VOWEL;
         }
         for (char d : currentConsonants){
-            if (d == c) return CONSONANT;
+            if (d == c) return Instances.LetterType.CONSONANT;
         }
-        return OTHER;
+        return Instances.LetterType.OTHER;
     }
 
     /**
@@ -164,7 +161,7 @@ public class StyleLearner {
      * Get the StyleData till now
      * @return Current StyleData
      */
-    public StyleData getStyle(){
+    public Style getStyle(){
         return style;
     }
 }

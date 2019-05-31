@@ -1,10 +1,15 @@
-package code.generation;
+package io.github.virtcode.stringgenerator.algorithms;
 
 /**
+ * An Algorithm to to Generate Strings by switching between Vowels and Consonants
  * @author VirtCode
  * @version 1.0
  */
-public class SwitchAlgorithm extends GenerationAlgorithm{
+public class SwitchAlgorithm extends GenerationAlgorithm {
+    /**
+     * Generates a String with that Algorithm
+     * @return Generated String
+     */
     @Override
     protected String generate() {
         if (length == 0) length = randInt(8);

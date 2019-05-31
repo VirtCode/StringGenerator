@@ -1,6 +1,7 @@
-package code.generation;
+package io.github.virtcode.stringgenerator.algorithms;
 
-import code.learning.StyleData;
+import io.github.virtcode.stringgenerator.Utilizer;
+import io.github.virtcode.stringgenerator.Style;
 
 import java.util.Random;
 
@@ -11,7 +12,7 @@ import java.util.Random;
  */
 public abstract class GenerationAlgorithm {
 
-    StyleUtilizer utilizer;
+    Utilizer utilizer;
 
     int length;
 
@@ -24,8 +25,8 @@ public abstract class GenerationAlgorithm {
      * @param first First char of String
      * @return Generated String
      */
-    public String generate(StyleData styleData, int length, char first){
-        this.utilizer = new StyleUtilizer(styleData);
+    public String generate(Style styleData, int length, char first){
+        this.utilizer = new Utilizer(styleData);
         this.length = length;
         this.first = first;
 

@@ -1,4 +1,4 @@
-package code.learning;
+package io.github.virtcode.stringgenerator;
 
 import java.io.*;
 import java.util.Map.Entry;
@@ -8,23 +8,23 @@ import java.util.Map.Entry;
  * @author VirtCode
  * @version 1.0
  */
-public class StyleLoader {
+public class Loader {
 
     /**
      * Saves a StyleData to a File
      * @param data Data to save
      * @param file Path to File to save the data in
      */
-    public void saveStyle(StyleData data, String file){
+    public void saveStyle(Style data, String file){
         try {
             FileWriter writer = new FileWriter(new File(file));
             BufferedWriter bufferedWriter = new BufferedWriter(writer);
             bufferedWriter.write("//Type Uses: \n");
             bufferedWriter.write("#TU\n");
-            bufferedWriter.write("VC;" + data.getCombo(StyleInstances.LetterType.VOWEL) + "\n");
-            bufferedWriter.write("CC;" + data.getCombo(StyleInstances.LetterType.CONSONANT) + "\n");
-            bufferedWriter.write("VS;" + data.getSingle(StyleInstances.LetterType.VOWEL) + "\n");
-            bufferedWriter.write("CS;" + data.getSingle(StyleInstances.LetterType.CONSONANT) + "\n");
+            bufferedWriter.write("VC;" + data.getCombo(Instances.LetterType.VOWEL) + "\n");
+            bufferedWriter.write("CC;" + data.getCombo(Instances.LetterType.CONSONANT) + "\n");
+            bufferedWriter.write("VS;" + data.getSingle(Instances.LetterType.VOWEL) + "\n");
+            bufferedWriter.write("CS;" + data.getSingle(Instances.LetterType.CONSONANT) + "\n");
 
 
             bufferedWriter.write("//Vowel Usage: \n");
@@ -74,13 +74,13 @@ public class StyleLoader {
      * @param path String of the path of the file
      * @return StyleData from file
      */
-    public StyleData loadStyle(String path){
+    public Style loadStyle(String path){
         try {
             FileReader reader = new FileReader(new File(path));
             BufferedReader bufferedReader = new BufferedReader(reader);
 
             String current = "";
-            StyleData style = new StyleData();
+            Style style = new Style();
 
             String line = bufferedReader.readLine();
             while(line != null && !line.equals("")){
@@ -108,16 +108,16 @@ public class StyleLoader {
                             case "TU":
                                 switch (args[0]){
                                     case "VC":
-                                        style.forceCombo(StyleInstances.LetterType.VOWEL, Integer.parseInt(args[1]));
+                                        style.forceCombo(Instances.LetterType.VOWEL, Integer.parseInt(args[1]));
                                         break;
                                     case "CC":
-                                        style.forceCombo(StyleInstances.LetterType.CONSONANT, Integer.parseInt(args[1]));
+                                        style.forceCombo(Instances.LetterType.CONSONANT, Integer.parseInt(args[1]));
                                         break;
                                     case "VS":
-                                        style.forceSingle(StyleInstances.LetterType.VOWEL, Integer.parseInt(args[1]));
+                                        style.forceSingle(Instances.LetterType.VOWEL, Integer.parseInt(args[1]));
                                         break;
                                     case "CS":
-                                        style.forceSingle(StyleInstances.LetterType.CONSONANT, Integer.parseInt(args[1]));
+                                        style.forceSingle(Instances.LetterType.CONSONANT, Integer.parseInt(args[1]));
                                         break;
                                 }
                                 break;
@@ -131,7 +131,7 @@ public class StyleLoader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new StyleData();
+        return new Style();
     }
 
 }

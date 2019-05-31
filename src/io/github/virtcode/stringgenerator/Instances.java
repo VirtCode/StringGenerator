@@ -1,15 +1,15 @@
-package code.learning;
+package io.github.virtcode.stringgenerator;
 
 /**
  * @author VirtCode
  * @version 1.0
  */
-public class StyleInstances {
+public class Instances {
     /**
      * Chars that ar in most Texts but are no Letters
      * Preset
      */
-    public static final char[] nonLetters = {'\n', '\r', ',', '\'', '\"', ':', '.', ';', '(', ')', '/', '\\', '<', '>', '!', '?', '_', '-'};
+    public static final char[] nonLetters = {'\n', '\r', ',', '\'', '\"', ':', '.', ';', '(', ')', '/', '\\', '<', '>', '!', '?', '_', '-', '[', ']', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
     /**
      * Theoretical Vowels
      * Preset

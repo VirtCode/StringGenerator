@@ -1,4 +1,4 @@
-package code.learning;
+package io.github.virtcode.stringgenerator;
 
 import java.util.Map.Entry;
 import java.util.HashMap;
@@ -7,7 +7,7 @@ import java.util.HashMap;
  * @author VirtCode
  * @version 1.0
  */
-public class StyleData {
+public class Style {
 
     /**
      * Saves the uses of individual Vowels
@@ -40,7 +40,7 @@ public class StyleData {
     /**
      * Initialize HashMaps
      */
-    public StyleData(){
+    public Style(){
         this.vowelUses = new HashMap<>();
         this.consonantUses = new HashMap<>();
         this.vowelCombinations = new HashMap<>();
@@ -91,7 +91,7 @@ public class StyleData {
      * Adds a new Single to the data
      * @param type Letter type
      */
-    public void newSingle(StyleInstances.LetterType type){
+    public void newSingle(Instances.LetterType type){
         switch (type) {
             case VOWEL:
                 vowelSingles++;
@@ -106,7 +106,7 @@ public class StyleData {
      * Adds a new Single to the data
      * @param type Letter type
      */
-    public void newCombo(StyleInstances.LetterType type){
+    public void newCombo(Instances.LetterType type){
         switch (type) {
             case VOWEL:
                 vowelCombos++;
@@ -162,7 +162,7 @@ public class StyleData {
      * @param type Lettertype to return
      * @return Amount of singles
      */
-    public int getSingle(StyleInstances.LetterType type){
+    public int getSingle(Instances.LetterType type){
         switch (type) {
             case VOWEL: return vowelSingles;
             case CONSONANT: return consonantSingles;
@@ -175,7 +175,7 @@ public class StyleData {
      * @param type Lettertype to return
      * @return Amount of combos
      */
-    public int getCombo(StyleInstances.LetterType type){
+    public int getCombo(Instances.LetterType type){
         switch (type) {
             case VOWEL: return vowelCombos;
             case CONSONANT: return consonantCombos;
@@ -233,7 +233,7 @@ public class StyleData {
      * @param type Lettertype to overwrite
      * @param i amount of Singles
      */
-    void forceSingle(StyleInstances.LetterType type, int i){
+    void forceSingle(Instances.LetterType type, int i){
         switch (type) {
             case VOWEL:
                 vowelSingles = i;
@@ -249,7 +249,7 @@ public class StyleData {
      * @param type Lettertype to overwrite
      * @param i amount of combos
      */
-    void forceCombo(StyleInstances.LetterType type, int i){
+    void forceCombo(Instances.LetterType type, int i){
         switch (type) {
             case VOWEL:
                 vowelCombos = i;

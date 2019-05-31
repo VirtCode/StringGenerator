@@ -1,6 +1,6 @@
-package code.generation;
+package io.github.virtcode.stringgenerator;
 
-import code.learning.StyleData;
+import io.github.virtcode.stringgenerator.algorithms.GenerationAlgorithm;
 
 /**
  * @author VirtCode
@@ -8,7 +8,7 @@ import code.learning.StyleData;
  */
 public class Generator {
 
-    StyleData data;
+    Style data;
     GenerationAlgorithm algorithm;
 
     int length;
@@ -21,7 +21,7 @@ public class Generator {
      * @param first First letter to generate with
      * @param algorithm Algorithm to generate with
      */
-    public Generator(StyleData style, int length, char first, GenerationAlgorithm algorithm){
+    public Generator(Style style, int length, char first, GenerationAlgorithm algorithm){
         this.data = style;
         this.algorithm = algorithm;
         this.length = length;
@@ -33,7 +33,7 @@ public class Generator {
      * @param styleData Style to generate with
      * @param algorithm Algorithm to generate with
      */
-    public Generator(StyleData styleData,  GenerationAlgorithm algorithm){
+    public Generator(Style styleData, GenerationAlgorithm algorithm){
         this(styleData, 0, ' ', algorithm);
     }
 
@@ -41,7 +41,7 @@ public class Generator {
      * Set Generation style
      * @param data Style to set
      */
-    public void setStyle(StyleData data){
+    public void setStyle(Style data){
         this.data = data;
     }
 

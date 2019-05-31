@@ -1,7 +1,4 @@
-package code.generation;
-
-import code.learning.StyleData;
-import code.learning.StyleInstances;
+package io.github.virtcode.stringgenerator;
 
 import java.util.Map.Entry;
 
@@ -9,15 +6,15 @@ import java.util.Map.Entry;
  * @author VirtCode
  * @version 1.0
  */
-public class StyleUtilizer {
+public class Utilizer {
 
-    StyleData style;
+    Style style;
 
-    public StyleUtilizer(StyleData style){
+    public Utilizer(Style style){
         this.style = style;
     }
 
-    public void updateStyle(StyleData newStyle){
+    public void updateStyle(Style newStyle){
         style = newStyle;
     }
 
@@ -98,14 +95,14 @@ public class StyleUtilizer {
      * @return The amount of uses
      */
     public int getWholeConsonantLength(){
-        return style.getCombo(StyleInstances.LetterType.CONSONANT) + style.getSingle(StyleInstances.LetterType.CONSONANT);
+        return style.getCombo(Instances.LetterType.CONSONANT) + style.getSingle(Instances.LetterType.CONSONANT);
     }
     /**
      * Returns the whole amount of vowel singles and pairs
      * @return The amount of uses
      */
     public int getWholeVowelLength(){
-        return style.getCombo(StyleInstances.LetterType.VOWEL) + style.getSingle(StyleInstances.LetterType.VOWEL);
+        return style.getCombo(Instances.LetterType.VOWEL) + style.getSingle(Instances.LetterType.VOWEL);
     }
 
     /**
@@ -114,7 +111,7 @@ public class StyleUtilizer {
      * @return True if it is a Combo
      */
     public boolean isConsonantComboAt(int i){
-        return i >= style.getSingle(StyleInstances.LetterType.CONSONANT);
+        return i >= style.getSingle(Instances.LetterType.CONSONANT);
     }
     /**
      * Returns if it is a Vowel combo at a certain Position
@@ -122,7 +119,7 @@ public class StyleUtilizer {
      * @return True if it is a Combo
      */
     public boolean isVowelComboAt(int i){
-        return i >= style.getSingle(StyleInstances.LetterType.VOWEL);
+        return i >= style.getSingle(Instances.LetterType.VOWEL);
     }
 
     /**
