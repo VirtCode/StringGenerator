@@ -1,6 +1,6 @@
-package io.github.virtcode.stringgenerator;
+package ch.virt.stringgenerator;
 
-import io.github.virtcode.stringgenerator.algorithms.GenerationAlgorithm;
+import ch.virt.stringgenerator.algorithms.GenerationAlgorithm;
 
 /**
  * @author VirtCode

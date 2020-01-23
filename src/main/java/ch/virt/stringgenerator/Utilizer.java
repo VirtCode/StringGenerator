@@ -1,4 +1,4 @@
-package io.github.virtcode.stringgenerator;
+package ch.virt.stringgenerator;
 
 import java.util.Map.Entry;
 

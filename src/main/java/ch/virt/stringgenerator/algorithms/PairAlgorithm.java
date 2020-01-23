@@ -1,4 +1,4 @@
-package io.github.virtcode.stringgenerator.algorithms;
+package ch.virt.stringgenerator.algorithms;
 
 
 /**

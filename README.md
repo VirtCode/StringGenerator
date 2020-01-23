@@ -4,13 +4,23 @@ This Library is capable of generating random names out of the characterusage of 
 The characterusage can be saved in .csv files and loaded later again.
 With this Library you are able to write your own generation Algorithms quite easy.
 ## Version
-The Current version is **1.0**
+The Current version is **1.1**
 ## License
 This project is licensed under the MIT License.
 Please consider reading the LICENSE file for more information.
 ## Usage
 ### Getting the JAR
 To get the latest version of the library, download the latest release in the release section.
+Or you can newly clone it from jitpack via:
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.VirtCode:StringGenerator:1.1'
+}
+```
 ### In Code
 Learn a specific style from a textfile:
 ```java

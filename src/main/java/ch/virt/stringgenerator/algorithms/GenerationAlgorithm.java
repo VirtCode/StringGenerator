@@ -1,7 +1,7 @@
-package io.github.virtcode.stringgenerator.algorithms;
+package ch.virt.stringgenerator.algorithms;
 
-import io.github.virtcode.stringgenerator.Utilizer;
-import io.github.virtcode.stringgenerator.Style;
+import ch.virt.stringgenerator.Style;
+import ch.virt.stringgenerator.Utilizer;
 
 import java.util.Random;
 

@@ -1,4 +1,4 @@
-package io.github.virtcode.stringgenerator.algorithms;
+package ch.virt.stringgenerator.algorithms;
 
 /**
  * An Algorithm to to Generate Strings by switching between Vowels and Consonants
