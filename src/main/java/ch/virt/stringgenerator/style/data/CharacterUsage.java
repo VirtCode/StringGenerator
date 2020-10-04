@@ -5,17 +5,17 @@ package ch.virt.stringgenerator.style.data;
  * @version 1.0
  */
 public class CharacterUsage {
-    private int length;
+    private char character;
     private int usage;
 
-    public CharacterUsage(int length) {
-        this.length = length;
+    public CharacterUsage(char character) {
+        this.character = character;
     }
 
     public CharacterUsage(){}
 
-    public int getLength() {
-        return length;
+    public char getCharacter() {
+        return character;
     }
 
     public int getUsage() {

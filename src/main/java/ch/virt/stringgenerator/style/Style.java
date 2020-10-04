@@ -1,7 +1,7 @@
 package ch.virt.stringgenerator.style;
 
+import ch.virt.stringgenerator.style.data.LengthUsage;
 import ch.virt.stringgenerator.style.data.CharacterUsage;
-import ch.virt.stringgenerator.style.data.LetterUsage;
 import ch.virt.stringgenerator.style.data.PairUsage;
 
 /**
@@ -9,11 +9,14 @@ import ch.virt.stringgenerator.style.data.PairUsage;
  * @version 1.0
  */
 public class Style {
-    LetterUsage[] letters;
-    PairUsage[] pairs;
-    CharacterUsage[] lengths;
 
-    public void setLetters(LetterUsage[] letters) {
+    CharacterUsage[] letters;
+    CharacterUsage[] beginnings;
+    CharacterUsage[] ends;
+    PairUsage[] pairs;
+    LengthUsage[] lengths;
+
+    public void setLetters(CharacterUsage[] letters) {
         this.letters = letters;
     }
 
@@ -21,11 +24,27 @@ public class Style {
         this.pairs = pairs;
     }
 
-    public void setLengths(CharacterUsage[] lengths) {
+    public void setLengths(LengthUsage[] lengths) {
         this.lengths = lengths;
     }
 
-    public LetterUsage[] getLetters() {
+    public CharacterUsage[] getBeginnings() {
+        return beginnings;
+    }
+
+    public void setBeginnings(CharacterUsage[] beginnings) {
+        this.beginnings = beginnings;
+    }
+
+    public CharacterUsage[] getEnds() {
+        return ends;
+    }
+
+    public void setEnds(CharacterUsage[] ends) {
+        this.ends = ends;
+    }
+
+    public CharacterUsage[] getLetters() {
         return letters;
     }
 
@@ -33,7 +52,7 @@ public class Style {
         return pairs;
     }
 
-    public CharacterUsage[] getLengths() {
+    public LengthUsage[] getLengths() {
         return lengths;
     }
 }

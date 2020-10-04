@@ -4,18 +4,18 @@ package ch.virt.stringgenerator.style.data;
  * @author VirtCode
  * @version 1.0
  */
-public class LetterUsage {
-    private char character;
+public class LengthUsage {
+    private int length;
     private int usage;
 
-    public LetterUsage(char character) {
-        this.character = character;
+    public LengthUsage(int length) {
+        this.length = length;
     }
 
-    public LetterUsage(){}
+    public LengthUsage(){}
 
-    public char getCharacter() {
-        return character;
+    public int getLength() {
+        return length;
     }
 
     public int getUsage() {

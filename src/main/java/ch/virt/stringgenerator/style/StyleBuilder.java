@@ -1,7 +1,7 @@
 package ch.virt.stringgenerator.style;
 
+import ch.virt.stringgenerator.style.data.LengthUsage;
 import ch.virt.stringgenerator.style.data.CharacterUsage;
-import ch.virt.stringgenerator.style.data.LetterUsage;
 import ch.virt.stringgenerator.style.data.PairUsage;
 
 import java.util.ArrayList;
@@ -12,40 +12,71 @@ import java.util.ArrayList;
  */
 public class StyleBuilder {
 
-    ArrayList<CharacterUsage> lengths;
-    ArrayList<LetterUsage> letters;
+    ArrayList<LengthUsage> lengths;
+    ArrayList<CharacterUsage> letters;
     ArrayList<PairUsage> pairs;
+
+    ArrayList<CharacterUsage> beginnings;
+    ArrayList<CharacterUsage> ends;
 
     public StyleBuilder(){
         lengths = new ArrayList<>();
         letters = new ArrayList<>();
         pairs = new ArrayList<>();
+        beginnings = new ArrayList<>();
+        ends = new ArrayList<>();
     }
 
     public void pushLength(int length){
-        for (CharacterUsage lengthUsage : lengths) {
+        for (LengthUsage lengthUsage : lengths) {
             if (lengthUsage.getLength() == length){
                 lengthUsage.pushUsage();
                 return;
             }
         }
 
-        CharacterUsage usage = new CharacterUsage(length);
+        LengthUsage usage = new LengthUsage(length);
         usage.pushUsage();
         lengths.add(usage);
     }
 
     public void pushLetter(char letter){
-        for (LetterUsage letterUsage : letters) {
-            if (letterUsage.getCharacter() == letter){
-                letterUsage.pushUsage();
+        for (CharacterUsage characterUsage : letters) {
+            if (characterUsage.getCharacter() == letter){
+                characterUsage.pushUsage();
                 return;
             }
         }
 
-        LetterUsage usage = new LetterUsage(letter);
+        CharacterUsage usage = new CharacterUsage(letter);
         usage.pushUsage();
         letters.add(usage);
+    }
+
+    public void pushBeginning(char letter){
+        for (CharacterUsage characterUsage : beginnings) {
+            if (characterUsage.getCharacter() == letter){
+                characterUsage.pushUsage();
+                return;
+            }
+        }
+
+        CharacterUsage usage = new CharacterUsage(letter);
+        usage.pushUsage();
+        beginnings.add(usage);
+    }
+
+    public void pushEnd(char letter){
+        for (CharacterUsage characterUsage : ends) {
+            if (characterUsage.getCharacter() == letter){
+                characterUsage.pushUsage();
+                return;
+            }
+        }
+
+        CharacterUsage usage = new CharacterUsage(letter);
+        usage.pushUsage();
+        ends.add(usage);
     }
 
     public void pushPair(char first, char second){
@@ -63,9 +94,11 @@ public class StyleBuilder {
 
     public Style build(){
         Style style = new Style();
-        style.setLengths(lengths.toArray(new CharacterUsage[0]));
+        style.setLengths(lengths.toArray(new LengthUsage[0]));
         style.setPairs(pairs.toArray(new PairUsage[0]));
-        style.setLetters(letters.toArray(new LetterUsage[0]));
+        style.setLetters(letters.toArray(new CharacterUsage[0]));
+        style.setBeginnings(beginnings.toArray(new CharacterUsage[0]));
+        style.setEnds(ends.toArray(new CharacterUsage[0]));
         return style;
     }
 }
