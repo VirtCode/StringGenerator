@@ -4,11 +4,10 @@ package ch.virt.stringgenerator.style.data;
  * @author VirtCode
  * @version 1.0
  */
-public class PairUsage {
+public class PairUsage extends Usage{
     private char first;
     private char second;
 
-    private int usage;
 
     public PairUsage(char first, char second) {
         this.first = first;
@@ -23,14 +22,5 @@ public class PairUsage {
 
     public char getSecond() {
         return second;
-    }
-
-    public int getUsage() {
-        return usage;
-    }
-
-    public void pushUsage()
-    {
-        usage++;
     }
 }

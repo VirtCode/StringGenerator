@@ -12,7 +12,7 @@ public class Learner {
     StyleBuilder builder;
 
     private char wordSplitter = ' ';
-    private char[] nonLetters = new char[]{'\n', '\r', '-', '.', ',', '!', '?', ':', ';', '_', '(', ')'};
+    private char[] nonLetters = new char[]{'\n', '\r', '-', '.', ',', '!', '?', ':', ';', '_', '(', ')', '+', '=', '/'};
 
     public Learner(){
         builder = new StyleBuilder();
