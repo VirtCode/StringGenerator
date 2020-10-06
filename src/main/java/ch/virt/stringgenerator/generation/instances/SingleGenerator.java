@@ -7,13 +7,15 @@ import ch.virt.stringgenerator.style.Style;
  * @author VirtCode
  * @version 1.0
  */
-public class PairGenerator extends Generator {
+public class SingleGenerator extends Generator {
 
-    int length = -1;
-    char beginning = 0;
-    boolean useBeginning = true;
+    private int length = -1;
+    private boolean useBeginning = true;
+    private char beginning = 0;
+    private boolean useEnding = true;
+    private char ending = 0;
 
-    public PairGenerator(Style style) {
+    public SingleGenerator(Style style) {
         super(style);
     }
 
@@ -27,25 +29,35 @@ public class PairGenerator extends Generator {
     public void setUseBeginning(boolean useBeginning) {
         this.useBeginning = useBeginning;
     }
+    public void setEndingLetter(char ending) {
+        this.ending = ending;
+    }
+    public void setUseEnding(boolean useEnding) {
+        this.useEnding = useEnding;
+    }
 
     @Override
     public String generateName() {
-        char beginning = this.beginning;
         int length = this.length;
+        char beginning = this.beginning;
+        char ending = this.ending;
+
+        if (length == -1) length = getLength();
         if (beginning == 0){
             if (useBeginning) beginning = getBeginning();
             else beginning = getLetter();
         }
-        if (length < 0){
-            length = getLength();
+        if (ending == 0){
+            if (useEnding) ending = getEnding();
+            else ending = getLetter();
         }
-
-        if (length == 0) return "";
 
         char[] chars = new char[length];
         chars[0] = beginning;
-        for (int i = 1; i < chars.length; i++) {
-            chars[i] = getSecondPair(chars[i - 1]);
+        chars[chars.length -1] = ending;
+
+        for (int i = 1; i < chars.length - 1; i++) {
+            chars[i] = getLetter();
         }
 
         return new String(chars);

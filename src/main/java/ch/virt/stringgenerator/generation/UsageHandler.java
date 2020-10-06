@@ -16,9 +16,15 @@ public class UsageHandler {
     private Style style;
     private Random random;
 
+    private boolean unweighted = false;
+
     public UsageHandler(Style style) {
         this.style = style;
         this.random = new Random();
+    }
+
+    public void setWeighted(boolean weighted) {
+        this.unweighted = !weighted;
     }
 
     public void setStyle(Style style) {
@@ -28,42 +34,56 @@ public class UsageHandler {
         return style;
     }
 
-    public char getLetter(){
+    protected char getLetter(){
         return getLetter(random.nextDouble());
     }
-    public char getLetter(double random){
+    protected char getLetter(double random){
         return style.getLetters()[getIndexFromRandom(random, style.getLetters())].getCharacter();
     }
 
-    public char getBeginning() {
+    protected char getBeginning() {
         return getBeginning(random.nextDouble());
     }
-    public char getBeginning(double random){
+    protected char getBeginning(double random){
         return style.getBeginnings()[getIndexFromRandom(random, style.getBeginnings())].getCharacter();
     }
 
-    public char getEnding(){
+    protected char getEnding(){
         return getEnding(random.nextDouble());
     }
-    public char getEnding(double random){
+    protected char getEnding(double random){
         return style.getBeginnings()[getIndexFromRandom(random, style.getBeginnings())].getCharacter();
     }
 
-    public char getSecondPair(char first){
+    protected char getSecondPair(char first){
         return getSecondPair(first, random.nextDouble());
     }
-    public char getSecondPair(char first, double random){
+    protected char getSecondPair(char first, double random){
         return getSecondFromRandom(first, style.getPairs(), random);
     }
 
-    public int getLength(){
+    protected int getLength(){
         return getLength(random.nextDouble());
     }
-    public int getLength(double random){
+    protected int getLength(double random){
         return style.getLengths()[getIndexFromRandom(random, style.getLengths())].getLength();
     }
 
-    public char getSecondFromRandom(char first, PairUsage[] usages, double random){
+    private char getSecondFromRandom(char first, PairUsage[] usages, double random){
+        if (unweighted){
+            int rand = (int) Math.floor(getSecondPairCount(first, usages) * random);
+            int current = 0;
+
+            for (PairUsage usage : usages) {
+                if (usage.getFirst() == first){
+                    current++;
+                    if (current == rand) return usage.getSecond();
+                }
+            }
+
+            return ' ';
+        }
+
         int all = getSecondPairUsages(first, usages);
         int usage = (int) Math.floor(random * all);
 
@@ -77,7 +97,7 @@ public class UsageHandler {
 
         return ' ';
     }
-    public int getSecondPairUsages(char first, PairUsage[] usages){
+    private int getSecondPairUsages(char first, PairUsage[] usages){
         int u = 0;
         for (PairUsage usage : usages) {
             if (usage.getFirst() == first) u += usage.getUsage();
@@ -85,8 +105,20 @@ public class UsageHandler {
 
         return u;
     }
+    private int getSecondPairCount(char first, PairUsage[] usages){
+        int u = 0;
+        for (PairUsage usage : usages) {
+            if (usage.getFirst() == first) u++;
+        }
 
-    public int getIndexFromRandom(double random, Usage[] usages){
+        return u;
+    }
+
+    private int getIndexFromRandom(double random, Usage[] usages){
+        if (unweighted){
+            return (int) Math.floor(random * usages.length);
+        }
+
         int all = getAllUsages(usages);
         int usage = (int) Math.floor(random * all);
 
@@ -98,7 +130,7 @@ public class UsageHandler {
 
         return 0;
     }
-    public int getAllUsages(Usage[] usages){
+    private int getAllUsages(Usage[] usages){
         int u = 0;
         for (Usage usage : usages) {
             u += usage.getUsage();
