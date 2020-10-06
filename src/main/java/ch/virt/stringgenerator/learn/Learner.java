@@ -12,44 +12,73 @@ public class Learner {
     StyleBuilder builder;
 
     private char wordSplitter = ' ';
-    private char[] nonLetters = new char[]{'\n', '\r', '-', '.', ',', '!', '?', ':', ';', '_', '(', ')', '+', '=', '/'};
+    private char[] letters = "abcdefghijklmnopqrstuvwxyz".toCharArray();
+    private char[] vowels = "aeiou".toCharArray();
 
     public Learner(){
         builder = new StyleBuilder();
     }
 
-    public void setNonLetters(char[] nonLetters) {
-        this.nonLetters = nonLetters;
+    public void setLetters(char[] letters) {
+        this.letters = letters;
     }
-
+    public void setVowels(char[] vowels) {
+        this.vowels = vowels;
+    }
     public void setWordSplitter(char wordSplitter) {
         this.wordSplitter = wordSplitter;
     }
 
+    private String getNonLetterReplaceRegex(){
+        return "[^" + new String(letters) + "]";
+    }
+    private boolean isVowel(char c){
+        for (char vowel : vowels) {
+            if (vowel == c) return true;
+        }
+        return false;
+    }
+
     public void learn(String s){
         s = s.toLowerCase();
-
-        for (char nonLetter : nonLetters) {
-            s = s.replace(nonLetter, wordSplitter);
-        }
+        s = s.replaceAll(getNonLetterReplaceRegex(), "" + wordSplitter);
 
         String[] words = s.split("" + wordSplitter);
-
         for (String word : words) {
-            char last = wordSplitter;
+            if (word.length() == 0) continue;
             char[] characters = word.toCharArray();
-            if (characters.length == 0) continue;
 
             builder.pushBeginning(characters[0]);
             builder.pushEnd(characters[characters.length - 1]);
             builder.pushLength(characters.length);
 
+            char last = wordSplitter;
+            StringBuilder currentCombination = null;
+            boolean currentVowel = false;
+
             for (char c : characters) {
                 builder.pushLetter(c);
+
                 if (last != wordSplitter){
                     builder.pushPair(last, c);
                 }
                 last = c;
+
+                boolean vowel = isVowel(c);
+
+                if (currentCombination == null) {
+                    currentCombination = new StringBuilder();
+                    currentCombination.append(c);
+                    currentVowel = vowel;
+                }else {
+                    if (currentVowel != vowel) {
+                        builder.pushCombination(currentCombination.toString(), currentVowel);
+                        currentCombination = new StringBuilder();
+                        currentVowel = vowel;
+                    }
+
+                    currentCombination.append(c);
+                }
             }
         }
     }

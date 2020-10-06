@@ -14,8 +14,6 @@ public class PairUsage extends Usage{
         this.second = second;
     }
 
-    public PairUsage(){}
-
     public char getFirst() {
         return first;
     }

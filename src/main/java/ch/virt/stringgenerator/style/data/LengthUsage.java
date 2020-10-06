@@ -11,8 +11,6 @@ public class LengthUsage extends Usage{
         this.length = length;
     }
 
-    public LengthUsage(){}
-
     public int getLength() {
         return length;
     }

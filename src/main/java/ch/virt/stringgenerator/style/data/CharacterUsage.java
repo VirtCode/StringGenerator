@@ -11,8 +11,6 @@ public class CharacterUsage extends Usage{
         this.character = character;
     }
 
-    public CharacterUsage(){}
-
     public char getCharacter() {
         return character;
     }

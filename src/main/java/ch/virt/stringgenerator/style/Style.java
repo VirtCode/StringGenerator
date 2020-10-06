@@ -1,8 +1,6 @@
 package ch.virt.stringgenerator.style;
 
-import ch.virt.stringgenerator.style.data.LengthUsage;
-import ch.virt.stringgenerator.style.data.CharacterUsage;
-import ch.virt.stringgenerator.style.data.PairUsage;
+import ch.virt.stringgenerator.style.data.*;
 
 /**
  * @author VirtCode
@@ -10,11 +8,19 @@ import ch.virt.stringgenerator.style.data.PairUsage;
  */
 public class Style {
 
-    CharacterUsage[] letters;
-    CharacterUsage[] beginnings;
-    CharacterUsage[] ends;
-    PairUsage[] pairs;
-    LengthUsage[] lengths;
+    private Meta meta;
+
+    private CharacterUsage[] letters;
+    private CharacterUsage[] beginnings;
+    private CharacterUsage[] ends;
+    private PairUsage[] pairs;
+    private LengthUsage[] lengths;
+
+    private CombinationUsage[] vowelCombinations;
+    private LengthUsage[] vowelLengths;
+
+    private CombinationUsage[] nonVowelCombinations;
+    private LengthUsage[] nonVowelLengths;
 
     public void setLetters(CharacterUsage[] letters) {
         this.letters = letters;
@@ -54,5 +60,45 @@ public class Style {
 
     public LengthUsage[] getLengths() {
         return lengths;
+    }
+
+    public Meta getMeta() {
+        return meta;
+    }
+
+    public void setMeta(Meta meta) {
+        this.meta = meta;
+    }
+
+    public CombinationUsage[] getVowelCombinations() {
+        return vowelCombinations;
+    }
+
+    public void setVowelCombinations(CombinationUsage[] vowelCombinations) {
+        this.vowelCombinations = vowelCombinations;
+    }
+
+    public LengthUsage[] getVowelLengths() {
+        return vowelLengths;
+    }
+
+    public void setVowelLengths(LengthUsage[] vowelLengths) {
+        this.vowelLengths = vowelLengths;
+    }
+
+    public CombinationUsage[] getNonVowelCombinations() {
+        return nonVowelCombinations;
+    }
+
+    public void setNonVowelCombinations(CombinationUsage[] nonVowelCombinations) {
+        this.nonVowelCombinations = nonVowelCombinations;
+    }
+
+    public LengthUsage[] getNonVowelLengths() {
+        return nonVowelLengths;
+    }
+
+    public void setNonVowelLengths(LengthUsage[] nonVowelLengths) {
+        this.nonVowelLengths = nonVowelLengths;
     }
 }
