@@ -10,22 +10,22 @@ import java.util.ArrayList;
  */
 public class StyleBuilder {
 
-    ArrayList<LengthUsage> lengths;
-    ArrayList<CharacterUsage> letters;
-    ArrayList<PairUsage> pairs;
+    private ArrayList<LengthUsage> lengths;
+    private ArrayList<CharacterUsage> letters;
+    private ArrayList<PairUsage> pairs;
 
-    ArrayList<CharacterUsage> beginnings;
-    ArrayList<CharacterUsage> ends;
+    private ArrayList<CharacterUsage> beginnings;
+    private ArrayList<CharacterUsage> ends;
 
-    ArrayList<CombinationUsage> vowelCombinations;
-    ArrayList<CombinationUsage> nonVowelCombinations;
+    private ArrayList<CombinationUsage> vowelCombinations;
+    private ArrayList<CombinationUsage> nonVowelCombinations;
 
-    ArrayList<LengthUsage> vowelLengths;
-    ArrayList<LengthUsage> nonVowelLengths;
+    private ArrayList<LengthUsage> vowelLengths;
+    private ArrayList<LengthUsage> nonVowelLengths;
 
-    ArrayList<LengthUsage> combinationCount;
+    private ArrayList<LengthUsage> combinationCount;
 
-    Meta meta;
+    private Meta meta;
 
     public StyleBuilder(){
         lengths = new ArrayList<>();

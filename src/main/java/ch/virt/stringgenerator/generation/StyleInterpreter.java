@@ -152,7 +152,7 @@ public class StyleInterpreter {
         for (CombinationUsage combinationUsage : usages) {
             if (combinationUsage.getLength() == length){
                 current += combinationUsage.getUsage();
-                if (current > usage) return combinationUsage.getCombination();
+                if (current >= usage) return combinationUsage.getCombination();
             }
         }
 
@@ -177,7 +177,7 @@ public class StyleInterpreter {
 
     private char getSecond(char first, PairUsage[] usages, double random){
         if (unweighted){
-            int rand = (int) Math.floor(getSecondPairCount(first, usages) * random);
+            int rand = (int) Math.floor(getSecondPairCount(first, usages) * random) + 1;
             int current = 0;
 
             for (PairUsage usage : usages) {
@@ -187,7 +187,7 @@ public class StyleInterpreter {
                 }
             }
 
-            return ' ';
+            return getLetter(random);
         }
 
         int all = getSecondPairUsages(first, usages);
@@ -201,7 +201,7 @@ public class StyleInterpreter {
             }
         }
 
-        return ' ';
+        return getLetter(random);
     }
     private int getSecondPairUsages(char first, PairUsage[] usages){
         int u = 0;

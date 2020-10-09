@@ -7,10 +7,11 @@ package ch.virt.stringgenerator.style.data;
 public class Meta {
     private String name;
     private String source;
-    private String wordCount;
+    private String description;
+    private int wordCount;
     private char[] letters;
     private char[] vowels;
-    private char[] splitter;
+    private char splitter;
 
     public String getName() {
         return name;
@@ -28,11 +29,19 @@ public class Meta {
         this.source = source;
     }
 
-    public String getWordCount() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getWordCount() {
         return wordCount;
     }
 
-    public void setWordCount(String wordCount) {
+    public void setWordCount(int wordCount) {
         this.wordCount = wordCount;
     }
 
@@ -44,11 +53,11 @@ public class Meta {
         this.letters = letters;
     }
 
-    public char[] getSplitter() {
+    public char getSplitter() {
         return splitter;
     }
 
-    public void setSplitter(char[] splitter) {
+    public void setSplitter(char splitter) {
         this.splitter = splitter;
     }
 

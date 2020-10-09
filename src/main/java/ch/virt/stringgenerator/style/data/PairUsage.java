@@ -8,7 +8,6 @@ public class PairUsage extends Usage{
     private char first;
     private char second;
 
-
     public PairUsage(char first, char second) {
         this.first = first;
         this.second = second;

@@ -2,6 +2,7 @@ package ch.virt.stringgenerator.learn;
 
 import ch.virt.stringgenerator.style.Style;
 import ch.virt.stringgenerator.style.StyleBuilder;
+import ch.virt.stringgenerator.style.data.Meta;
 
 /**
  * @author VirtCode
@@ -9,12 +10,23 @@ import ch.virt.stringgenerator.style.StyleBuilder;
  */
 public class Learner {
 
-    StyleBuilder builder;
+    private StyleBuilder builder;
+    private int wordCount;
 
     private char wordSplitter = ' ';
     private char[] letters = "abcdefghijklmnopqrstuvwxyz".toCharArray();
     private char[] vowels = "aeiou".toCharArray();
 
+    private String name = "";
+    private String description = "";
+    private String source = "";
+
+    public Learner(String name, String description, String source) {
+        this();
+        this.name = name;
+        this.description = description;
+        this.source = source;
+    }
     public Learner(){
         builder = new StyleBuilder();
     }
@@ -27,6 +39,16 @@ public class Learner {
     }
     public void setWordSplitter(char wordSplitter) {
         this.wordSplitter = wordSplitter;
+    }
+
+    public void setMetaName(String name) {
+        this.name = name;
+    }
+    public void setMetaDescription(String description) {
+        this.description = description;
+    }
+    public void setMetaSource(String source) {
+        this.source = source;
     }
 
     private String getNonLetterReplaceRegex(){
@@ -46,6 +68,7 @@ public class Learner {
         String[] words = s.split("" + wordSplitter);
         for (String word : words) {
             if (word.length() == 0) continue;
+            wordCount++;
             char[] characters = word.toCharArray();
 
             builder.pushBeginning(characters[0]);
@@ -89,7 +112,21 @@ public class Learner {
         }
     }
 
+    private void createMeta(){
+        Meta meta = new Meta();
+        meta.setLetters(letters);
+        meta.setVowels(vowels);
+        meta.setSplitter(wordSplitter);
+        meta.setWordCount(wordCount);
+        meta.setName(name);
+        meta.setDescription(description);
+        meta.setSource(source);
+
+        builder.setMeta(meta);
+    }
+
     public Style get(){
+        createMeta();
         return builder.build();
     }
 }

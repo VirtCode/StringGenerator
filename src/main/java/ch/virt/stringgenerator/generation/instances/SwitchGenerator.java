@@ -34,14 +34,15 @@ public class SwitchGenerator extends Generator {
     @Override
     public String generate() {
         boolean start = vowelStart;
+        int length = partLength;
         if (!hasStart) start = getRandom().nextBoolean();
 
-        if (partLength == -1) partLength = getCombinationCount();
-        if (partLength == 0) return "";
+        if (length == -1) length = getCombinationCount();
+        if (length == 0) return "";
 
         StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < partLength; i++) {
+        for (int i = 0; i < length; i++) {
             if (start) sb.append(getVowel());
             else sb.append(getNonVowel());
             start = !start;

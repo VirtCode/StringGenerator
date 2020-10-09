@@ -9,9 +9,9 @@ import ch.virt.stringgenerator.style.Style;
  */
 public class PairGenerator extends Generator {
 
-    int length = -1;
-    char beginning = 0;
-    boolean useBeginning = true;
+    private int length = -1;
+    private char beginning = 0;
+    private boolean useBeginning = true;
 
     public PairGenerator(Style style) {
         super(style);
