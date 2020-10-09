@@ -55,6 +55,7 @@ public class Learner {
             char last = wordSplitter;
             StringBuilder currentCombination = null;
             boolean currentVowel = false;
+            int combinationCount = 0;
 
             for (char c : characters) {
                 builder.pushLetter(c);
@@ -75,11 +76,16 @@ public class Learner {
                         builder.pushCombination(currentCombination.toString(), currentVowel);
                         currentCombination = new StringBuilder();
                         currentVowel = vowel;
+                        combinationCount++;
                     }
 
                     currentCombination.append(c);
                 }
             }
+
+            combinationCount++;
+            builder.pushCombination(currentCombination.toString(), currentVowel);
+            builder.pushCombinationCount(combinationCount);
         }
     }
 

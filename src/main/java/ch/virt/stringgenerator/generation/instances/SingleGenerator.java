@@ -3,6 +3,8 @@ package ch.virt.stringgenerator.generation.instances;
 import ch.virt.stringgenerator.generation.Generator;
 import ch.virt.stringgenerator.style.Style;
 
+import java.util.Random;
+
 /**
  * @author VirtCode
  * @version 1.0
@@ -37,7 +39,7 @@ public class SingleGenerator extends Generator {
     }
 
     @Override
-    public String generateName() {
+    public String generate() {
         int length = this.length;
         char beginning = this.beginning;
         char ending = this.ending;

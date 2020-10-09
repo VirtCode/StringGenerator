@@ -23,6 +23,8 @@ public class StyleBuilder {
     ArrayList<LengthUsage> vowelLengths;
     ArrayList<LengthUsage> nonVowelLengths;
 
+    ArrayList<LengthUsage> combinationCount;
+
     Meta meta;
 
     public StyleBuilder(){
@@ -35,6 +37,7 @@ public class StyleBuilder {
         vowelCombinations = new ArrayList<>();
         nonVowelLengths = new ArrayList<>();
         nonVowelCombinations = new ArrayList<>();
+        combinationCount = new ArrayList<>();
     }
 
     public void pushLength(int length){
@@ -48,6 +51,19 @@ public class StyleBuilder {
         LengthUsage usage = new LengthUsage(length);
         usage.pushUsage();
         lengths.add(usage);
+    }
+
+    public void pushCombinationCount(int count){
+        for (LengthUsage lengthUsage : combinationCount) {
+            if (lengthUsage.getLength() == count){
+                lengthUsage.pushUsage();
+                return;
+            }
+        }
+
+        LengthUsage usage = new LengthUsage(count);
+        usage.pushUsage();
+        combinationCount.add(usage);
     }
 
     public void pushLetter(char letter){
@@ -180,6 +196,7 @@ public class StyleBuilder {
         style.setNonVowelCombinations(nonVowelCombinations.toArray(new CombinationUsage[0]));
         style.setVowelLengths(vowelLengths.toArray(new LengthUsage[0]));
         style.setNonVowelLengths(nonVowelLengths.toArray(new LengthUsage[0]));
+        style.setCombinationCount(combinationCount.toArray(new LengthUsage[0]));
 
         style.setMeta(meta);
         return style;

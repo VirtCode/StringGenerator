@@ -22,6 +22,8 @@ public class Style {
     private CombinationUsage[] nonVowelCombinations;
     private LengthUsage[] nonVowelLengths;
 
+    private LengthUsage[] combinationCount;
+
     public void setLetters(CharacterUsage[] letters) {
         this.letters = letters;
     }
@@ -100,5 +102,13 @@ public class Style {
 
     public void setNonVowelLengths(LengthUsage[] nonVowelLengths) {
         this.nonVowelLengths = nonVowelLengths;
+    }
+
+    public LengthUsage[] getCombinationCount() {
+        return combinationCount;
+    }
+
+    public void setCombinationCount(LengthUsage[] combinationCount) {
+        this.combinationCount = combinationCount;
     }
 }

@@ -29,7 +29,7 @@ public class PairGenerator extends Generator {
     }
 
     @Override
-    public String generateName() {
+    public String generate() {
         char beginning = this.beginning;
         int length = this.length;
         if (beginning == 0){
