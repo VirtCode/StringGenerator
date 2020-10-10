@@ -4,6 +4,8 @@ import ch.virt.stringgenerator.generation.Generator;
 import ch.virt.stringgenerator.style.Style;
 
 /**
+ * This is a Generator preset
+ * This generator uses pairs to select characters that are in relation to each other
  * @author VirtCode
  * @version 1.0
  */
@@ -13,17 +15,33 @@ public class PairGenerator extends Generator {
     private char beginning = 0;
     private boolean useBeginning = true;
 
+    /**
+     * Creates a pair generator
+     * @param style style to generate with
+     */
     public PairGenerator(Style style) {
         super(style);
     }
 
+    /**
+     * Sets the length of the String that should be generated
+     * @param length length in characters
+     */
     public void setLength(int length){
         this.length = length;
     }
 
+    /**
+     * Sets the beginning letter of the string
+     * @param beginning beginning character
+     */
     public void setBeginningLetter(char beginning){
         this.beginning = beginning;
     }
+    /**
+     * Sets whether the generator should use the dedicated beginning letter dataset
+     * @param useBeginning use specific beginning letters
+     */
     public void setUseBeginning(boolean useBeginning) {
         this.useBeginning = useBeginning;
     }

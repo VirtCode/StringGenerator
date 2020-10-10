@@ -3,6 +3,7 @@ package ch.virt.stringgenerator.style;
 import ch.virt.stringgenerator.style.data.*;
 
 /**
+ * This class holds all information about analyzed words
  * @author VirtCode
  * @version 1.0
  */

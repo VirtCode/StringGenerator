@@ -6,6 +6,8 @@ import ch.virt.stringgenerator.style.Style;
 import java.util.Random;
 
 /**
+ * This is a generator preset
+ * This generator generates based on random selected single characters with no relation to each other
  * @author VirtCode
  * @version 1.0
  */
@@ -17,23 +19,47 @@ public class SingleGenerator extends Generator {
     private boolean useEnding = true;
     private char ending = 0;
 
+    /**
+     * Creates a generator
+     * @param style style to generate with
+     */
     public SingleGenerator(Style style) {
         super(style);
     }
 
+    /**
+     * Sets the length of the generated string
+     * @param length length in characters
+     */
     public void setLength(int length){
         this.length = length;
     }
 
+    /**
+     * Sets the beginning letter of the string
+     * @param beginning beginning character
+     */
     public void setBeginningLetter(char beginning){
         this.beginning = beginning;
     }
+    /**
+     * Sets whether the generator should use the dedicated beginning letter dataset
+     * @param useBeginning use specific beginning letters
+     */
     public void setUseBeginning(boolean useBeginning) {
         this.useBeginning = useBeginning;
     }
+    /**
+     * Sets the ending letter of the string
+     * @param ending ending character
+     */
     public void setEndingLetter(char ending) {
         this.ending = ending;
     }
+    /**
+     * Sets whether the generator should use the dedicated ending letter dataset
+     * @param useEnding use specific ending letters
+     */
     public void setUseEnding(boolean useEnding) {
         this.useEnding = useEnding;
     }
