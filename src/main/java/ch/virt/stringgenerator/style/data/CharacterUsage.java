@@ -5,7 +5,8 @@ package ch.virt.stringgenerator.style.data;
  * @author VirtCode
  * @version 1.0
  */
-public class CharacterUsage extends Usage{
+public class CharacterUsage extends Usage {
+
     private char character;
 
     /**
@@ -13,6 +14,19 @@ public class CharacterUsage extends Usage{
      * @param character character the usage is stored from
      */
     public CharacterUsage(char character) {
+        this.character = character;
+    }
+
+    /**
+     * Constructor for deserialization
+     */
+    public CharacterUsage() { }
+
+    /**
+     * Sets the character
+     * @param character character to set
+     */
+    public void setCharacter(char character) {
         this.character = character;
     }
 

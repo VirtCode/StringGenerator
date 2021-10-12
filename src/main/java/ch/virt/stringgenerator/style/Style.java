@@ -25,6 +25,8 @@ public class Style {
 
     private LengthUsage[] combinationCount;
 
+    public Style() {}
+
     public void setLetters(CharacterUsage[] letters) {
         this.letters = letters;
     }

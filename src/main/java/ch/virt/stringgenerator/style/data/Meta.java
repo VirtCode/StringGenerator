@@ -6,6 +6,7 @@ package ch.virt.stringgenerator.style.data;
  * @version 1.0
  */
 public class Meta {
+
     private String name;
     private String source;
     private String description;
@@ -13,6 +14,11 @@ public class Meta {
     private char[] letters;
     private char[] vowels;
     private char splitter;
+
+    /**
+     * Constructor for deserialization
+     */
+    public Meta() { }
 
     /**
      * Returns the name of the style

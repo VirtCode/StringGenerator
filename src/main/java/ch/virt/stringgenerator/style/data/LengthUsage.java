@@ -6,6 +6,7 @@ package ch.virt.stringgenerator.style.data;
  * @version 1.0
  */
 public class LengthUsage extends Usage{
+
     private int length;
 
     /**
@@ -13,6 +14,19 @@ public class LengthUsage extends Usage{
      * @param length length the storage counts on
      */
     public LengthUsage(int length) {
+        this.length = length;
+    }
+
+    /**
+     * Constructor for deserialization
+     */
+    public LengthUsage() { }
+
+    /**
+     * Sets the length
+     * @param length length
+     */
+    public void setLength(int length) {
         this.length = length;
     }
 

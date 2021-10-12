@@ -9,6 +9,11 @@ public class Usage {
     private int usage;
 
     /**
+     * Constructor for deserialization
+     */
+    public Usage() { }
+
+    /**
      * Returns the total count of usages
      * @return count of usages
      */

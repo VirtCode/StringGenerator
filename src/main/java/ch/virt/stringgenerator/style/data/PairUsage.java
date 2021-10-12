@@ -5,7 +5,8 @@ package ch.virt.stringgenerator.style.data;
  * @author VirtCode
  * @version 1.0
  */
-public class PairUsage extends Usage{
+public class PairUsage extends Usage {
+
     private char first;
     private char second;
 
@@ -16,6 +17,28 @@ public class PairUsage extends Usage{
      */
     public PairUsage(char first, char second) {
         this.first = first;
+        this.second = second;
+    }
+
+    /**
+     * Constructor for deserialization
+     */
+    public PairUsage() {}
+
+
+    /**
+     * Sets the first letter to the pair
+     * @param first first letter
+     */
+    public void setFirst(char first) {
+        this.first = first;
+    }
+
+    /**
+     * Sets the second letter to the pair
+     * @param second second letter
+     */
+    public void setSecond(char second) {
         this.second = second;
     }
 

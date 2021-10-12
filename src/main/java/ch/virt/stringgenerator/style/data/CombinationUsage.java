@@ -6,13 +6,27 @@ package ch.virt.stringgenerator.style.data;
  * @version 1.0
  */
 public class CombinationUsage extends Usage {
-    String combination;
+
+    private String combination;
 
     /**
      * Creates a combination storage
      * @param combination combination
      */
     public CombinationUsage(String combination) {
+        this.combination = combination;
+    }
+
+    /**
+     * Constructor for deserialization
+     */
+    public CombinationUsage() { }
+
+    /**
+     * Sets the combination string
+     * @param combination combination string
+     */
+    public void setCombination(String combination) {
         this.combination = combination;
     }
 
